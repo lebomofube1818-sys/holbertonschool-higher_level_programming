@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Module that provides a function to append a string to a text file."""
 
+
 def append_write(filename="", text=""):
     """Appends a string to the end of a UTF8 text file.
 
