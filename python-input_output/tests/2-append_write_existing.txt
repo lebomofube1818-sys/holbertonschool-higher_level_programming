@@ -1,0 +1,11 @@
+Append to existing file
+
+>>> append_write = __import__('2-append_write').append_write
+>>> append_write("test_existing.txt", "First line\n")
+11
+>>> append_write("test_existing.txt", "Second line\n")
+12
+>>> with open("test_existing.txt", "r", encoding="utf-8") as f:
+...     print(f.read(), end="")
+First line
+Second line

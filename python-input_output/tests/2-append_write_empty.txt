@@ -1,0 +1,7 @@
+Append empty string
+
+>>> append_write = __import__('2-append_write').append_write
+>>> append_write("test_empty.txt", "")
+0
+>>> with open("test_empty.txt", "r", encoding="utf-8") as f:
+...     print(f.read(), end="")

@@ -1,0 +1,8 @@
+Append to a new file
+
+>>> append_write = __import__('2-append_write').append_write
+>>> append_write("test_append.txt", "Hello World\n")
+12
+>>> with open("test_append.txt", "r", encoding="utf-8") as f:
+...     print(f.read(), end="")
+Hello World
