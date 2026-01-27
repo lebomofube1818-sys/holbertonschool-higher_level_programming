@@ -1,3 +1,6 @@
--- 0. List all databases on the MySQL server
-SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA;
+-- 0. List all databases of your MySQL server
+-- This script lists all databases currently present, sorted alphabetically
+SELECT SCHEMA_NAME
+FROM INFORMATION_SCHEMA.SCHEMATA
+ORDER BY SCHEMA_NAME ASC;
 
