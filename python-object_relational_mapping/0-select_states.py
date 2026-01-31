@@ -7,13 +7,12 @@ Results are sorted in ascending order by states.id using MySQLdb.
 import MySQLdb
 import sys
 
-if __name__ == "__main__":
-    # Get MySQL credentials and database from command-line arguments
-    username = sys.argv[1]
-    password = sys.argv[2]
-    database = sys.argv[3]
 
-    # Connect to MySQL server on localhost at port 3306
+def list_states(username, password, database):
+    """
+    Connects to MySQL and returns a list of states
+    ordered by id ascending.
+    """
     db = MySQLdb.connect(
         host="localhost",
         port=3306,
@@ -22,19 +21,23 @@ if __name__ == "__main__":
         db=database
     )
 
-    # Create a cursor
     cursor = db.cursor()
-
-    # Execute SQL query to select all states ordered by id ascending
     cursor.execute("SELECT * FROM states ORDER BY id ASC")
-
-    # Fetch all rows
     rows = cursor.fetchall()
-
-    # Print each row as a tuple exactly
-    for row in rows:
-        print(row)
-
-    # Close cursor and connection
     cursor.close()
     db.close()
+    return rows
+
+
+if __name__ == "__main__":
+    # Get arguments safely
+    if len(sys.argv) != 4:
+        sys.exit()
+
+    username = sys.argv[1]
+    password = sys.argv[2]
+    database = sys.argv[3]
+
+    states = list_states(username, password, database)
+    for state in states:
+        print(state)
