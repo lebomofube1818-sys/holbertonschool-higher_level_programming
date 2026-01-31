@@ -31,7 +31,7 @@ if __name__ == "__main__":
     # Fetch all results
     rows = cursor.fetchall()
 
-    # Print each row
+    # Print each row as a tuple exactly
     for row in rows:
         print(row)
 
