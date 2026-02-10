@@ -1,0 +1,8 @@
+Test write_file with normal string
+
+>>> write_file = __import__('1-write_file').write_file
+>>> write_file("test_file.txt", "This School is so cool!\n")
+24
+>>> with open("test_file.txt", "r", encoding="utf-8") as f:
+...     print(f.read(), end="")
+This School is so cool!

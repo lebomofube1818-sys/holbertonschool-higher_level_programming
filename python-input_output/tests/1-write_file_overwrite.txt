@@ -1,0 +1,10 @@
+Test overwrite existing file
+
+>>> write_file = __import__('1-write_file').write_file
+>>> write_file("overwrite.txt", "Old content\n")
+12
+>>> write_file("overwrite.txt", "New content")
+11
+>>> with open("overwrite.txt", "r", encoding="utf-8") as f:
+...     print(f.read(), end="")
+New content

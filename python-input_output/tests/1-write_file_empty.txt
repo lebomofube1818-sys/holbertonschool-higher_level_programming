@@ -1,0 +1,7 @@
+Test write_file with empty string
+
+>>> write_file = __import__('1-write_file').write_file
+>>> write_file("empty.txt", "")
+0
+>>> with open("empty.txt", "r", encoding="utf-8") as f:
+...     print(f.read(), end="")
