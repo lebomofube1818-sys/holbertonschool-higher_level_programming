@@ -4,12 +4,44 @@
 >>> bg.integer_validator("my_int", 12)
 >>> bg.integer_validator("width", 89)
 
+# TypeError cases
 >>> try:
 ...     bg.integer_validator("name", "John")
 ... except Exception as e:
 ...     print(type(e).__name__, e)
 TypeError name must be an integer
 
+>>> try:
+...     bg.integer_validator("age", (4,))
+... except Exception as e:
+...     print(type(e).__name__, e)
+TypeError age must be an integer
+
+>>> try:
+...     bg.integer_validator("age", [3])
+... except Exception as e:
+...     print(type(e).__name__, e)
+TypeError age must be an integer
+
+>>> try:
+...     bg.integer_validator("age", {3, 4})
+... except Exception as e:
+...     print(type(e).__name__, e)
+TypeError age must be an integer
+
+>>> try:
+...     bg.integer_validator("age", None)
+... except Exception as e:
+...     print(type(e).__name__, e)
+TypeError age must be an integer
+
+>>> try:
+...     bg.integer_validator("num", True)
+... except Exception as e:
+...     print(type(e).__name__, e)
+TypeError num must be an integer
+
+# ValueError cases
 >>> try:
 ...     bg.integer_validator("age", 0)
 ... except Exception as e:
@@ -22,8 +54,9 @@ ValueError age must be greater than 0
 ...     print(type(e).__name__, e)
 ValueError distance must be greater than 0
 
+# Missing argument case
 >>> try:
-...     bg.integer_validator("num", True)
+...     bg.integer_validator("age")
 ... except Exception as e:
-...     print(type(e).__name__, e)
-TypeError num must be an integer
+...     print(type(e).__name__)
+TypeError
