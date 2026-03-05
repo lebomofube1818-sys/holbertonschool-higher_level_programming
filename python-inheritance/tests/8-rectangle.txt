@@ -1,0 +1,35 @@
+>>> Rectangle = __import__('8-rectangle').Rectangle
+
+>>> r = Rectangle(3, 5)
+>>> isinstance(r, Rectangle)
+True
+
+>>> try:
+...     print(r.width)
+... except Exception as e:
+...     print(type(e).__name__)
+AttributeError
+
+>>> try:
+...     Rectangle(4, True)
+... except Exception as e:
+...     print(type(e).__name__, e)
+TypeError height must be an integer
+
+>>> try:
+...     Rectangle("4", 5)
+... except Exception as e:
+...     print(type(e).__name__, e)
+TypeError width must be an integer
+
+>>> try:
+...     Rectangle(0, 5)
+... except Exception as e:
+...     print(type(e).__name__, e)
+ValueError width must be greater than 0
+
+>>> try:
+...     Rectangle(4, -2)
+... except Exception as e:
+...     print(type(e).__name__, e)
+ValueError height must be greater than 0
