@@ -1,0 +1,27 @@
+>>> inherits_from = __import__('4-inherits_from').inherits_from
+
+>>> inherits_from(True, int)
+True
+>>> inherits_from(True, bool)
+False
+>>> inherits_from(True, object)
+True
+
+>>> inherits_from(1, int)
+False
+>>> inherits_from(1, object)
+True
+
+>>> class A:
+...     pass
+...
+>>> class B(A):
+...     pass
+...
+>>> obj = B()
+>>> inherits_from(obj, A)
+True
+>>> inherits_from(obj, B)
+False
+>>> inherits_from(obj, object)
+True
