@@ -1,0 +1,35 @@
+>>> Square = __import__('11-square').Square
+
+>>> s = Square(13)
+>>> print(s)
+[Square] 13/13
+
+>>> str(s)
+'[Square] 13/13'
+
+>>> s.area()
+169
+
+>>> try:
+...     Square(True)
+... except Exception as e:
+...     print(type(e).__name__, e)
+TypeError size must be an integer
+
+>>> try:
+...     Square("12")
+... except Exception as e:
+...     print(type(e).__name__, e)
+TypeError size must be an integer
+
+>>> try:
+...     Square(0)
+... except Exception as e:
+...     print(type(e).__name__, e)
+ValueError size must be greater than 0
+
+>>> try:
+...     Square(-5)
+... except Exception as e:
+...     print(type(e).__name__, e)
+ValueError size must be greater than 0
